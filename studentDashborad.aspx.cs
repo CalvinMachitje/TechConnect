@@ -13,5 +13,15 @@ namespace TechConnect
 		{
 
 		}
+
+		protected void btncheckStatus_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("checkStatus.aspx");
+		}
+
+		protected void btneditProfile_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("updateProfile.aspx");
+		}
 	}
 }

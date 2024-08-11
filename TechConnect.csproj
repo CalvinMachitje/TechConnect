@@ -68,6 +68,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2023_4 dentsu SA Bursary Scheme for Young South Africans » Youth Opportunities Hub.jpg" />
+    <Content Include="checkStatus.aspx" />
     <Content Include="defaultPage.aspx" />
     <Content Include="Download South Africa, Flag, Fingerprint_ Royalty-Free Stock Illustration Image.jpeg" />
     <Content Include="loginPage.aspx" />
@@ -80,6 +81,13 @@
     <Content Include="Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="checkStatus.aspx.cs">
+      <DependentUpon>checkStatus.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="checkStatus.aspx.designer.cs">
+      <DependentUpon>checkStatus.aspx</DependentUpon>
+    </Compile>
     <Compile Include="defaultPage.aspx.cs">
       <DependentUpon>defaultPage.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

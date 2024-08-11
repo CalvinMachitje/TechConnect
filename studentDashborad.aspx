@@ -47,69 +47,54 @@
         button:hover {
             background-color: #0056b3;
         }
-        .subject-group {
-            margin-bottom: 10px;
+        .bursary-section {
+            margin-bottom: 20px;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            background-color: #f8f9fa;
         }
-        .subject-container {
-            margin-top: 20px;
+        .bursary {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #fff;
+        }
+        .bursary input[type="radio"] {
+            margin-right: 5px;
+        }
+        .bursary-details {
+            margin-top: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            background-color: #e9ecef;
         }
     </style>
 </head>
 <body>
 
+	<form id="form1" runat="server">
+
 <div class="container">
     <h1>Student Dashboard</h1>
 
+    <div class="bursary-section">
+        <h2>Available Bursaries</h2>
+        <div id="bursaryList">
+            <!-- Bursary options will be added here -->
+        </div>
+        <button onclick="applyForSelectedBursaries()">Apply for Selected</button>
+    </div>
+
     <div class="section">
         <h2>Edit Profile</h2>
-        <button onclick="openUpdateProfile()">Update Profile</button>
+        <asp:Button ID="btneditProfile" runat="server" OnClick="btneditProfile_Click" Text="Edit profile" />
     </div>
 
     <div class="section" id="updateProfileSection" style="display: none;">
-        <h2>Update Profile</h2>
-        <form id="updateProfileForm">
-            <div class="form-group">
-                <label for="name">Name</label>
-                <input type="text" id="name" placeholder="Enter your name" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="email">Email</label>
-                <input type="text" id="email" placeholder="Enter your email" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="phone">Phone</label>
-                <input type="text" id="phone" placeholder="Enter your phone number" required>
-            </div>
-            
-            <div class="form-group">
-                <label for="address">Address</label>
-                <textarea id="address" rows="3" placeholder="Enter your address" required></textarea>
-            </div>
-            
-            <div class="form-group">
-                <label for="highSchool">High School</label>
-                <input type="text" id="highSchool" placeholder="Enter your high school name" required>
-            </div>
-            
-            <div class="subject-container" id="subjectContainer">
-                <!-- Dynamic subject inputs will be added here -->
-            </div>
-            <button type="button" id="addSubjectButton">Add Subject</button>
-
-            <div class="form-group">
-                <label for="nextOfKin">Next of Kin</label>
-                <input type="text" id="nextOfKin" placeholder="Enter your next of kin details" required>
-            </div>
-
-            <div class="form-group">
-                <label for="apsScore">Overall APS Score</label>
-                <input type="text" id="apsScore" placeholder="Enter your overall APS score" required>
-            </div>
-
-            <button type="submit">Update Profile</button>
-        </form>
+        <!-- Update profile form -->
     </div>
 
     <div class="section">
@@ -125,48 +110,76 @@
 
     <div class="section">
         <h2>Check Status</h2>
-        <button onclick="alert('Status check functionality not implemented yet!')">Check Status</button>
+        <asp:Button ID="btncheckStatus" runat="server" OnClick="btncheckStatus_Click" Text="Check status" />
     </div>
 </div>
 
 <script>
-    let subjectCount = 0;
+	// Simulated bursary data (this would normally come from a server)
+	const bursaryData = [
+		{
+			id: 1, name: "National Bursary Program", options: [
+				{ id: 1, name: "Option 1", details: "Details for Option 1" },
+				{ id: 2, name: "Option 2", details: "Details for Option 2" },
+				{ id: 3, name: "Option 3", details: "Details for Option 3" }
+			]
+		},
+		{
+			id: 2, name: "University Bursary", options: [
+				{ id: 4, name: "Option 1", details: "Details for Option 1" },
+				{ id: 5, name: "Option 2", details: "Details for Option 2" },
+				{ id: 6, name: "Option 3", details: "Details for Option 3" }
+			]
+		},
+		{
+			id: 3, name: "Local Government Bursary", options: [
+				{ id: 7, name: "Option 1", details: "Details for Option 1" },
+				{ id: 8, name: "Option 2", details: "Details for Option 2" },
+				{ id: 9, name: "Option 3", details: "Details for Option 3" }
+			]
+		},
+		{
+			id: 4, name: "Private Sponsor Bursary", options: [
+				{ id: 10, name: "Option 1", details: "Details for Option 1" },
+				{ id: 11, name: "Option 2", details: "Details for Option 2" },
+				{ id: 12, name: "Option 3", details: "Details for Option 3" }
+			]
+		}
+	];
 
-    document.getElementById('addSubjectButton').addEventListener('click', function() {
-        subjectCount++;
-        
-        const subjectContainer = document.getElementById('subjectContainer');
-        
-        const subjectGroup = document.createElement('div');
-        subjectGroup.className = 'subject-group';
-        subjectGroup.innerHTML = `
-            <label for="subject${subjectCount}">Subject ${subjectCount}</label>
-            <input type="text" id="subject${subjectCount}" placeholder="Enter subject name" required>
-            <label for="score${subjectCount}">Score</label>
-            <input type="text" id="score${subjectCount}" placeholder="Enter score" required>
+	// Generate HTML for the bursary options
+	let bursaryListHTML = '';
+	bursaryData.forEach(bursary => {
+		bursaryListHTML += `
+            <div class="bursary">
+                <h3>${bursary.name}</h3>
+                <div class="bursary-details">
+                    ${bursary.options.map(option => `
+                        <div>
+                            <input type="radio" name="bursary-${bursary.id}" id="option-${option.id}">
+                            <label for="option-${option.id}">${option.name}</label>
+                            <p>${option.details}</p>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
         `;
-        
-        subjectContainer.appendChild(subjectGroup);
-    });
+	});
 
-    document.getElementById('updateProfileForm').addEventListener('submit', function(event) {
-        event.preventDefault();
-        // Handle form submission logic here
-        alert('Profile updated successfully!');
-        closeUpdateProfile();
-    });
+	// Display the bursary options
+	document.getElementById('bursaryList').innerHTML = bursaryListHTML;
 
-    function openUpdateProfile() {
-        document.getElementById('updateProfileSection').style.display = 'block';
-    }
+	function applyForSelectedBursaries() {
+		// Get the selected bursary options
+		const selectedOptions = Array.from(document.querySelectorAll('#bursaryList input[type="radio"]:checked'))
+			.map(radio => parseInt(radio.id.split('-')[1]));
 
-    function closeUpdateProfile() {
-        document.getElementById('updateProfileSection').style.display = 'none';
-        document.getElementById('updateProfileForm').reset();
-        document.getElementById('subjectContainer').innerHTML = ''; // Clear subjects
-        subjectCount = 0; // Reset subject count
-    }
+		// Simulate applying for the selected bursaries (replace with actual logic)
+		alert(`Applying for bursary options with IDs: ${selectedOptions.join(', ')}`);
+	}
 </script>
+
+	</form>
 
 </body>
 </html>
