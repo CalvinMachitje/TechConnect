@@ -47,8 +47,11 @@
         button:hover {
             background-color: #0056b3;
         }
-        .upload-section input[type="file"] {
-            margin-top: 10px;
+        .subject-group {
+            margin-bottom: 10px;
+        }
+        .subject-container {
+            margin-top: 20px;
         }
     </style>
 </head>
@@ -58,26 +61,55 @@
     <h1>Student Dashboard</h1>
 
     <div class="section">
-        <h2>Profile</h2>
-        <button onclick="alert('Profile edit functionality not implemented yet!')">Update Profile</button>
+        <h2>Edit Profile</h2>
+        <button onclick="openUpdateProfile()">Update Profile</button>
     </div>
 
-    <div class="section">
-        <h2>Profile</h2>
-        <h3>Personal Details</h3>
-        <p>Details about the student.</p>
-        
-        <h3>Address Details</h3>
-        <p>Details about the student's address.</p>
-        
-        <h3>High School Details</h3>
-        <p>Details about the student's high school.</p>
-        
-        <h3>Matric Results Details</h3>
-        <p>Details about the student's matric results.</p>
-        
-        <h3>Next of Kin</h3>
-        <p>Details about the student's next of kin.</p>
+    <div class="section" id="updateProfileSection" style="display: none;">
+        <h2>Update Profile</h2>
+        <form id="updateProfileForm">
+            <div class="form-group">
+                <label for="name">Name</label>
+                <input type="text" id="name" placeholder="Enter your name" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="email">Email</label>
+                <input type="text" id="email" placeholder="Enter your email" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="phone">Phone</label>
+                <input type="text" id="phone" placeholder="Enter your phone number" required>
+            </div>
+            
+            <div class="form-group">
+                <label for="address">Address</label>
+                <textarea id="address" rows="3" placeholder="Enter your address" required></textarea>
+            </div>
+            
+            <div class="form-group">
+                <label for="highSchool">High School</label>
+                <input type="text" id="highSchool" placeholder="Enter your high school name" required>
+            </div>
+            
+            <div class="subject-container" id="subjectContainer">
+                <!-- Dynamic subject inputs will be added here -->
+            </div>
+            <button type="button" id="addSubjectButton">Add Subject</button>
+
+            <div class="form-group">
+                <label for="nextOfKin">Next of Kin</label>
+                <input type="text" id="nextOfKin" placeholder="Enter your next of kin details" required>
+            </div>
+
+            <div class="form-group">
+                <label for="apsScore">Overall APS Score</label>
+                <input type="text" id="apsScore" placeholder="Enter your overall APS score" required>
+            </div>
+
+            <button type="submit">Update Profile</button>
+        </form>
     </div>
 
     <div class="section">
@@ -96,6 +128,45 @@
         <button onclick="alert('Status check functionality not implemented yet!')">Check Status</button>
     </div>
 </div>
+
+<script>
+    let subjectCount = 0;
+
+    document.getElementById('addSubjectButton').addEventListener('click', function() {
+        subjectCount++;
+        
+        const subjectContainer = document.getElementById('subjectContainer');
+        
+        const subjectGroup = document.createElement('div');
+        subjectGroup.className = 'subject-group';
+        subjectGroup.innerHTML = `
+            <label for="subject${subjectCount}">Subject ${subjectCount}</label>
+            <input type="text" id="subject${subjectCount}" placeholder="Enter subject name" required>
+            <label for="score${subjectCount}">Score</label>
+            <input type="text" id="score${subjectCount}" placeholder="Enter score" required>
+        `;
+        
+        subjectContainer.appendChild(subjectGroup);
+    });
+
+    document.getElementById('updateProfileForm').addEventListener('submit', function(event) {
+        event.preventDefault();
+        // Handle form submission logic here
+        alert('Profile updated successfully!');
+        closeUpdateProfile();
+    });
+
+    function openUpdateProfile() {
+        document.getElementById('updateProfileSection').style.display = 'block';
+    }
+
+    function closeUpdateProfile() {
+        document.getElementById('updateProfileSection').style.display = 'none';
+        document.getElementById('updateProfileForm').reset();
+        document.getElementById('subjectContainer').innerHTML = ''; // Clear subjects
+        subjectCount = 0; // Reset subject count
+    }
+</script>
 
 </body>
 </html>
