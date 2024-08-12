@@ -11,7 +11,7 @@ namespace TechConnect
 {
 
 
-	public partial class checkStatus
+	public partial class studentDashborad
 	{
 
 		/// <summary>

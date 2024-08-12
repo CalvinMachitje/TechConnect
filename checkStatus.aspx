@@ -58,10 +58,14 @@
 <script>
 	// Simulated bursary application status data (this would normally come from a server)
 	const bursaryApplications = [
+<<<<<<< HEAD
+		{ bursary: "Bursary Program", option: "Option 1", status: "Approved" },
+=======
 		{ bursary: "National Bursary Program", option: "Option 1", status: "Approved" },
 		{ bursary: "University Bursary", option: "Option 2", status: "Pending" },
 		{ bursary: "Local Government Bursary", option: "Option 1", status: "Rejected" },
 		{ bursary: "Private Sponsor Bursary", option: "Option 3", status: "Approved" }
+>>>>>>> 431b94c0523f7b098feb82a8c1e3cc3d5e763985
 	];
 
 	// Generate HTML for the bursary status results

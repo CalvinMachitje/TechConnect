@@ -7,7 +7,7 @@ using System.Web.UI.WebControls;
 
 namespace TechConnect
 {
-	public partial class updateProfile : System.Web.UI.Page
+	public partial class forgotPassword : System.Web.UI.Page
 	{
 		protected void Page_Load(object sender, EventArgs e)
 		{

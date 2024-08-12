@@ -90,7 +90,7 @@
 
     <div class="container" style="background-image: url('Moire - Baikal _ Sample.jpg')">
         <h1>Welcome to TechConnect</h1>
-        <form id="signupForm">
+        <form id="signupForm" runat="server">
             <label for="email">Email / ID Number</label>
             <input type="text" id="email" name="email" required class="auto-style1">
 
@@ -105,19 +105,21 @@
             </div>
 
             <label for="confirmPassword">Confirm Password</label>
-            <input type="password" id="confirmPassword" name="confirmPassword" required>
-
-            <button type="submit" aria-dropeffect="popup" style="text-align: center">Continue</button>
-        </form>
-
-        <div class="or">&nbsp;&nbsp;</div>
-        <button type="button" style="background-color: #DB4437;" aria-dropeffect="popup">Sign up with Google</button>
+            <input type="password" id="confirmPassword" name="confirmPassword" required><br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<asp:Button ID="btnContinue" runat="server" OnClick="btnContinue_Click" Text="Continue" />
+			<div class="or">
+				<asp:Button ID="btnGooglesignup" runat="server" Text="Sign up with Google" />
+			</div>
 
         <p class="guidelines">By continuing, you agree to TechConnect Terms of Service and acknowledge you've read our Privacy Policy.</p>
         
         <div class="login-link">
-            <p>Already registered? <a href="login.html">Log in</a></p>
+            <p>Already registered? 
+				<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/loginPage.aspx">Login</asp:HyperLink>
+			</p>
         </div>
+    	</form>
     </div>
 
 	<!-- Image container -->

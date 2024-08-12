@@ -85,21 +85,18 @@
         <div class="form-group">
             <label for="address">Address</label>
             <textarea id="address" rows="3" placeholder="Enter your address" required></textarea>
-        </div>
+			<br />
+            <label for="nextOfKin">Next of Kin</label><input type="text" id="nextOfKin" placeholder="Enter your next of kin details" required></div>
         
         <div class="form-group">
             <label for="highSchool">High School</label>
             <input type="text" id="highSchool" placeholder="Enter your high school name" required>
         </div>
         
-        <div class="subject-container" id="subjectContainer">
-            <!-- Dynamic subject inputs will be added here -->
-        </div>
         <button type="button" id="addSubjectButton">Add Subject</button>
 
         <div class="form-group">
-            <label for="nextOfKin">Next of Kin</label>
-            <input type="text" id="nextOfKin" placeholder="Enter your next of kin details" required>
+            &nbsp;
         </div>
 
         <div class="form-group">

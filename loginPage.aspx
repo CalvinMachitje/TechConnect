@@ -105,12 +105,17 @@
 &nbsp;<div>
             <label for="robotCheck">
             <input type="checkbox" id="robotCheck" required>
-            I'm not a robot</label>
-        </div>
+            I'm not a robot<br />
+&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+			<asp:Button ID="btnLogin" runat="server" OnClick="Button1_Click" Text="Log in" />
+			</label>&nbsp;</div>
         
-        <button type="submit">Log In</button>
-    <p><a href="#">Forgot your password?</a></p>
-    <p><a href="#">Create an account</a></p>
+    <p>
+		<asp:HyperLink ID="HyperLink1" runat="server" NavigateUrl="~/forgotPassword.aspx">Forgot your password?</asp:HyperLink>
+	</p>
+    <p>
+		<asp:HyperLink ID="HyperLink2" runat="server" NavigateUrl="~/signupPage.aspx">Create an account</asp:HyperLink>
+	</p>
     <div class="footer">
         <p>By continuing, you agree to Tech-Connect Terms of Service and acknowledge you've read our Privacy Policy.</p>
     </div>

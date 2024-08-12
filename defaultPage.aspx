@@ -92,7 +92,7 @@
             <p>&nbsp;</p>
 			<p>Discover bursary opportunities that help you achieve your educational dreams.</p>
             Get Started &gt;&nbsp;
-			<asp:Button ID="Button1" runat="server" BackColor="#999999" BorderStyle="None" Height="28px" OnClick="Button1_Click" Text="Apply now" />
+			<asp:Button ID="btnApply" runat="server" BackColor="#999999" BorderStyle="None" Height="28px" OnClick="Button1_Click" Text="Apply now" />
         </section>
 
         <section id="about">

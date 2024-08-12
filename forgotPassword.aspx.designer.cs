@@ -11,7 +11,7 @@ namespace TechConnect
 {
 
 
-	public partial class updateProfile
+	public partial class forgotPassword
 	{
 	}
 }

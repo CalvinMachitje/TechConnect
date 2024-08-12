@@ -13,5 +13,10 @@ namespace TechConnect
 		{
 
 		}
+
+		protected void btnContinue_Click(object sender, EventArgs e)
+		{
+			Response.Redirect("registrationPage.aspx");
+		}
 	}
 }

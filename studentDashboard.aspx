@@ -1,4 +1,4 @@
-﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="studentDashborad.aspx.cs" Inherits="TechConnect.studentDashborad" %>
+﻿<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="studentDashboard.aspx.cs" Inherits="TechConnect.studentDashborad" %>
 
 <!DOCTYPE html>
 <html lang="en">
@@ -118,33 +118,12 @@
 	// Simulated bursary data (this would normally come from a server)
 	const bursaryData = [
 		{
-			id: 1, name: "National Bursary Program", options: [
+			id: 1, name: "Bursary Program", options: [
 				{ id: 1, name: "Option 1", details: "Details for Option 1" },
 				{ id: 2, name: "Option 2", details: "Details for Option 2" },
 				{ id: 3, name: "Option 3", details: "Details for Option 3" }
 			]
 		},
-		{
-			id: 2, name: "University Bursary", options: [
-				{ id: 4, name: "Option 1", details: "Details for Option 1" },
-				{ id: 5, name: "Option 2", details: "Details for Option 2" },
-				{ id: 6, name: "Option 3", details: "Details for Option 3" }
-			]
-		},
-		{
-			id: 3, name: "Local Government Bursary", options: [
-				{ id: 7, name: "Option 1", details: "Details for Option 1" },
-				{ id: 8, name: "Option 2", details: "Details for Option 2" },
-				{ id: 9, name: "Option 3", details: "Details for Option 3" }
-			]
-		},
-		{
-			id: 4, name: "Private Sponsor Bursary", options: [
-				{ id: 10, name: "Option 1", details: "Details for Option 1" },
-				{ id: 11, name: "Option 2", details: "Details for Option 2" },
-				{ id: 12, name: "Option 3", details: "Details for Option 3" }
-			]
-		}
 	];
 
 	// Generate HTML for the bursary options
