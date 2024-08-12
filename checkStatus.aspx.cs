@@ -1,4 +1,3 @@
-﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -13,8 +12,15 @@ namespace TechConnect
 		{
 
 		}
+	}
+========
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Web;
+using System.Web.UI;
+using System.Web.UI.WebControls;
 
-		protected void btncheckStatus_Click(object sender, EventArgs e)
 		{
 			Response.Redirect("checkStatus.aspx");
 		}
@@ -24,4 +30,5 @@ namespace TechConnect
 			Response.Redirect("updateProfile.aspx");
 		}
 	}
+>>>>>>>> dadc3736eadb9317ade84224b46b6541dd9ab7cf:forgotPassword.aspx.cs
 }

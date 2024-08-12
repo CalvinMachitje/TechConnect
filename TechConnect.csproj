@@ -68,6 +68,8 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="2023_4 dentsu SA Bursary Scheme for Young South Africans » Youth Opportunities Hub.jpg" />
+    <Content Include="adminLogin.aspx" />
+    <Content Include="checkStatus.aspx" />
 <<<<<<< HEAD
     <Content Include="adminLogin.aspx" />
 =======
